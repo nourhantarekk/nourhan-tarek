@@ -19,6 +19,7 @@ $users = [
             "school" => 'drawing',
             'home' => 'painting'
         ],
+		
         
     ],
     (object)[
@@ -48,9 +49,11 @@ $users = [
             "school" => 'painting',
             'home' => 'drawing'
         ],
+		
         
         
     ], 
+	
      
 ];
 
@@ -72,6 +75,14 @@ $users = [
     <div class="container">
 	<div class="col ">
 	<table class="table">
+	<thead>
+	<tr>
+	 <?php foreach ($users[0] as $key=>$value )
+	 { ?>
+		 <th> <?php echo $key  ?> </th>
+	  <?php }?>
+	
+	
             <?php foreach ($users as $user)
 			{ ?>
             <tr> 
@@ -79,35 +90,33 @@ $users = [
 			{ ?>
 			   
                <td>
-               <?php if ($key=='id')
-			      {echo( $user->id);
-                continue;
+               <?php //if ($key=='id')
+			      //echo( $user->id);
+                //continue;
+				 if ($key=='gender')
+				 {if( $user->gender->gender=='f')
+						 $user->gender->gender='female';
+					 else
+						  $user->gender->gender= 'male';
+					 }
+					 
+				if (gettype($value) == 'array' || gettype($value) == 'object')
+				{
+				   foreach($value as $obj=>$out)
+				   { $out.=' ';
+					echo $out ;
+					continue;
+				  }
+				 
                 }
-                
-
-			  
-                     elseif ($key=='name')
-                    {echo $user->name;
-                    continue;
-                }
-
-               
-                     elseif ($key=='gender')
-                     {{if( $user->gender->gender=='f')
-					echo "female";
-				    elseif($user->gender->gender== 'm')
-                    echo( "male");}
-                        continue;
-                    }
-                        
-						
-                              else 
-                              {print_r($user->$key);
-                                continue;
-                              }?></td>
+				 else 
+					  echo $value;
+				  }
+				  ?>
+                   </td>
 						</tr>
 			 <?php } ?>
-             <?php } ?>
+            
             </table>
             </div>
             </div>
