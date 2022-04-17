@@ -25,9 +25,9 @@ if($_POST){
     <div class="container mt-3 ">
 	<form method="post" action="">
 	<table class="table">
-	<?php for ($i=0; $i<($num+1);$i++)
+	<?php for ($i=1; $i< ($num) ;$i++)
 	 { ?>
-	 <tr> <td> Member <?php echo ($i+1); ?> </td>
+	 <tr> <td> Member <?php echo ($i); ?> </td>
 	 <td> <input type="checkbox"  name="sport[]" value="football"  > 
 						 <label for="sport[]"> football </label> </td>
 						 
@@ -39,14 +39,34 @@ if($_POST){
 						 
 						 <td> <input type="checkbox"  name="sport[]" value="other"  > 
 						 <label for="sport[]"> other </label> </td>
-						 <?php foreach ($_POST['sport'] as $sports)
-							echo $sports;}?>
+						 <?php ?>
 							
-						   <tr> <td> <button class="btn btn-outline-dark rounded btn-sm m-3"> Result </button></td></tr>
+						   
 						<?php
-							{ } ?>						
-						
-
+							 } ?>
+							 <tr> <td> <button class="btn btn-outline-dark rounded btn m-3"> Result </button></td></tr>
+							 <?php  print_r($_POST['sport']);
+							 
+								$membrs= [
+									 [
+										$memb= [
+										
+											'football'=>300,
+											'volly'=>200,
+											'swim'=>150,
+											'other'=>100
+										 
+									 ],
+									],
+									
+								 ]
+							 ;
+							 
+								?>
+							</table>
+							
+							</form>
+							
 
 	 
 	</div>
