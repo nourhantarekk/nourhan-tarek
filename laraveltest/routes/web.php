@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\usercontroller;
+use App\Http\Controllers\messagecontroller;
+// use App\Http\Controllers\usercontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('message/print',[messagecontroller::class,'print']) ;
+Route::get('users/get',[usercontroller::class,'index']) ;
+Route::get('users/all',[usercontroller::class,'show']) ;
